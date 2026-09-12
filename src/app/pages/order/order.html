@@ -1,0 +1,95 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+
+      @if (!success) {
+        <h2 class="text-center fs-2 fw-bold mb-4">Оформление заказа</h2>
+
+        <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+
+          <!-- Имя и Фамилия -->
+          <div class="row mb-3">
+            <div class="col-sm-6">
+              <label class="form-label">Имя</label>
+              <input type="text" class="form-control" formControlName="name">
+              @if (orderForm.get('name')?.invalid && orderForm.get('name')?.touched) {
+                <div class="text-danger small">Введите имя (только буквы)</div>
+              }
+            </div>
+            <div class="col-sm-6">
+              <label class="form-label">Фамилия</label>
+              <input type="text" class="form-control" formControlName="last_name">
+              @if (orderForm.get('last_name')?.invalid && orderForm.get('last_name')?.touched) {
+                <div class="text-danger small">Введите фамилию (только буквы)</div>
+              }
+            </div>
+          </div>
+
+          <!-- Телефон -->
+          <div class="mb-3">
+            <label class="form-label">Телефон</label>
+            <input type="tel" class="form-control" formControlName="phone" placeholder="+375293689868">
+            @if (orderForm.get('phone')?.invalid && orderForm.get('phone')?.touched) {
+              <div class="text-danger small">Введите корректный номер (11 цифр, может начинаться с +)</div>
+            }
+          </div>
+
+          <!-- Страна и Индекс -->
+          <div class="row mb-3">
+            <div class="col-sm-6">
+              <label class="form-label">Страна</label>
+              <input type="text" class="form-control" formControlName="country">
+              @if (orderForm.get('country')?.invalid && orderForm.get('country')?.touched) {
+                <div class="text-danger small">Введите страну</div>
+              }
+            </div>
+            <div class="col-sm-6">
+              <label class="form-label">Индекс</label>
+              <input type="text" class="form-control" formControlName="zip">
+              @if (orderForm.get('zip')?.invalid && orderForm.get('zip')?.touched) {
+                <div class="text-danger small">Введите индекс</div>
+              }
+            </div>
+          </div>
+
+          <!-- Товар -->
+          <div class="mb-3">
+            <label class="form-label">Товар</label>
+            <input type="text" class="form-control" formControlName="product">
+          </div>
+
+          <!-- Адрес -->
+          <div class="mb-3">
+            <label class="form-label">Адрес</label>
+            <input type="text" class="form-control" formControlName="address">
+            @if (orderForm.get('address')?.invalid && orderForm.get('address')?.touched) {
+              <div class="text-danger small">Введите корректный адрес</div>
+            }
+          </div>
+
+          <!-- Комментарий -->
+          <div class="mb-3">
+            <label class="form-label">Комментарий к заказу</label>
+            <textarea class="form-control" formControlName="comment" rows="3"></textarea>
+          </div>
+
+          <!-- Кнопка -->
+          <div class="d-flex align-items-center gap-3">
+            <button type="submit" class="btn btn-primary" [disabled]="loading">
+              {{ loading ? 'Отправка...' : 'Оформить заказ' }}
+            </button>
+            @if (errorMessage) {
+              <span class="text-danger">{{ errorMessage }}</span>
+            }
+          </div>
+
+        </form>
+      } @else {
+        <div class="text-center">
+          <h2 class="fs-2 fw-bold text-success">Спасибо за заказ!</h2>
+        </div>
+      }
+
+    </div>
+  </div>
+</div>

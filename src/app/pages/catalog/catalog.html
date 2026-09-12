@@ -1,0 +1,44 @@
+<div class="container-fluid px-0">
+  <section class="section pt-4 mt-5">
+    <div class="container">
+      <div class="title text-center fs-2 fw-bold">
+        @if (searchQuery) {
+          Результаты поиска по запросу "{{ searchQuery }}"
+        } @else {
+          Наши чайные коллекции
+        }
+      </div>
+
+      @if (searchQuery) {
+        <div class="text-center mt-3">
+          <button class="btn btn-secondary" (click)="clearSearch()">Сбросить поиск</button>
+        </div>
+      }
+
+      @if (loading) {
+        <div class="text-center mt-5">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Загрузка...</span>
+          </div>
+        </div>
+      } @else if (teas.length === 0) {
+        <div class="text-center mt-5 fs-4">Ничего не найдено</div>
+      } @else {
+        <div class="row mt-3 g-4">
+          @for (tea of teas; track tea.id) {
+            <div class="col-xl-4 col-md-6">
+              <div class="card h-100">
+                <img [src]="tea.image" class="card-img-top" alt="tea">
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title fw-bold">{{ tea.title }}</h5>
+                  <p class="card-text">{{ tea.description.slice(0, 100) }}...</p>
+                  <a [routerLink]="'/product/' + tea.id" class="btn btn-primary mt-auto">Подробнее</a>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </section>
+</div>
