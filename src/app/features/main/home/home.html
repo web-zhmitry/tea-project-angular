@@ -1,0 +1,103 @@
+<div class="container-fluid px-0">
+
+  <!-- Секция с изображением -->
+  <section class="section pt-4 mt-5">
+    <div class="container">
+      <img src="img/image-big.jpg" class="img-fluid" alt="image">
+    </div>
+  </section>
+
+  <section class="section pt-4 mt-5">
+    <div class="container">
+      <div class="title text-center fs-2 fw-bold">Ответы на часто задаваемые вопросы</div>
+      <div class="row justify-content-center">
+        <div class="mt-5 col-lg-8 col-md-9 col-sm-10">
+          <div ngbAccordion [closeOthers]="true" class="accordion">
+            <div ngbAccordionItem [collapsed]="false" class="accordion-item border-0 mb-3">
+              <h2 ngbAccordionHeader class="accordion-header">
+                <button ngbAccordionButton class="accordion-button text-white fw-bold bg-primary p-4 rounded-2">
+                  Собираете ли вы подарочные боксы?
+                </button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody class="accordion-body">
+                  <ng-template>
+                    Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+
+            <div ngbAccordionItem class="accordion-item border-0 mb-3">
+              <h2 ngbAccordionHeader class="accordion-header">
+                <button ngbAccordionButton class="accordion-button text-white fw-bold bg-primary p-4 rounded-2">
+                  Сколько у вас разновидностей чая?
+                </button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody class="accordion-body">
+                  <ng-template>
+                    У нас в коллекции — 6 авторских видов чая, каждый из которых создан, чтобы подарить вам особое настроение и пользу.
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+
+            <div ngbAccordionItem class="accordion-item border-0 mb-3">
+              <h2 ngbAccordionHeader class="accordion-header">
+                <button ngbAccordionButton class="accordion-button text-white fw-bold bg-primary p-4 rounded-2">
+                  В какой срок осуществляется доставка?
+                </button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody class="accordion-body">
+                  <ng-template>
+                    Доставка осуществляется в течение 1–3 рабочих дней по всей России!
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+
+            <div ngbAccordionItem class="accordion-item border-0 mb-3">
+              <h2 ngbAccordionHeader class="accordion-header">
+                <button ngbAccordionButton class="accordion-button text-white fw-bold bg-primary p-4 rounded-2">
+                  У вас обновляется ассортимент?
+                </button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody class="accordion-body">
+                  <ng-template>
+                    Да, наш ассортимент регулярно обновляется! Мы внимательно следим за сезонами, новыми трендами в мире чая и, конечно же — за вашими пожеланиями.
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+
+            <div ngbAccordionItem class="accordion-item border-0 mb-3">
+              <h2 ngbAccordionHeader class="accordion-header">
+                <button ngbAccordionButton class="accordion-button text-white fw-bold bg-primary p-4 rounded-2">
+                  В какой срок осуществляется доставка?
+                </button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody class="accordion-body">
+                  <ng-template>
+                    Доставка осуществляется в течение 1–3 рабочих дней по всей России!
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  @if (showPopup) {
+    <div class="position-fixed top-50 start-50 translate-middle bg-white p-4 shadow-lg rounded-3 text-center" style="z-index: 2000; min-width: 300px;">
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-2" (click)="closePopup()" aria-label="Закрыть"></button>
+      <p class="fs-5 fw-bold mb-3">Посмотрите наши чайные коллекции</p>
+      <button class="btn btn-primary" (click)="goToCatalog()">Смотреть</button>
+    </div>
+  }
+</div>

@@ -1,36 +1,8 @@
-<header>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/">Logo</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-              aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" routerLink="/">Главная</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/catalog">Каталог</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <form class="d-flex" (submit)="onSearch($event)">
-      <input class="form-control me-2" type="search" placeholder="Поиск чая" [value]="searchService.getSearch()" #searchInput>
-      <button class="btn btn-outline-primary" type="submit">Найти</button>
-    </form>
-  </nav>
-</header>
+<app-header></app-header>
 
 <main>
   <router-outlet></router-outlet>
 </main>
 
-<footer class="footer bg-secondary bg-opacity-10 mt-5">
-  <div class="footer-text text-dark opacity-75 ps-3 py-3">
-    Все права защищены
-  </div>
-</footer>
+<app-footer></app-footer>
+
